@@ -183,7 +183,9 @@ Used RAM: {4}B", CPUbrand, CPUvendor, amount_of_ram, availible_ram, UsedRam);
             switch (input)
             {
                 case "Games":
-
+                    Games games = new Games();
+                    games.Main(null);
+                    break;
                 case "Calendar":
                 case "Calc":
                     Calc();
@@ -267,5 +269,12 @@ Used RAM: {4}B", CPUbrand, CPUvendor, amount_of_ram, availible_ram, UsedRam);
             }
         }
 
+    }
+    class Games
+    {
+        internal void Main(object value)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
