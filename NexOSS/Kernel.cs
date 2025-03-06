@@ -262,7 +262,7 @@ Used RAM: {4}B", CPUbrand, CPUvendor, amount_of_ram, availible_ram, UsedRam);
                 case 'b':
                     break;
                 default:
-                    Console.WriteLine("Unknow operation");
+                    Console.WriteLine("Unknow operation in this task");
                     break;
             }
         }
