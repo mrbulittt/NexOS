@@ -206,7 +206,7 @@ Used RAM: {4}B", CPUbrand, CPUvendor, amount_of_ram, availible_ram, UsedRam);
             }
             private static Dictionary<DateTime, string> notes = new Dictionary<DateTime, string>();
 
-            public void Main(string[] args)
+            public static void Main(string[] args)
             {
                 while (true)
                 {
@@ -242,7 +242,7 @@ Used RAM: {4}B", CPUbrand, CPUvendor, amount_of_ram, availible_ram, UsedRam);
                 }
             }
 
-            public void ShowCalendar()
+            public static void ShowCalendar()
             {
                 Console.Clear();
                 Console.WriteLine("Calendar");
@@ -276,7 +276,7 @@ Used RAM: {4}B", CPUbrand, CPUvendor, amount_of_ram, availible_ram, UsedRam);
                 Console.WriteLine();
             }
 
-            public void AddNote()
+            public static void AddNote()
             {
                 Console.Clear();
                 Console.WriteLine("Adding notes");
@@ -295,7 +295,7 @@ Used RAM: {4}B", CPUbrand, CPUvendor, amount_of_ram, availible_ram, UsedRam);
                 }
             }
 
-            public void ViewNotes()
+            public static void ViewNotes()
             {
                 Console.Clear();
                 Console.WriteLine("Notes list");
