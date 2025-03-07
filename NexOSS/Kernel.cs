@@ -256,7 +256,7 @@ Used RAM: {4}B", CPUbrand, CPUvendor, amount_of_ram, availible_ram, UsedRam);
                 DateTime firstDayOfMonth = new DateTime(currentDate.Year, currentDate.Month, 1);
 
                 int startDay = (int)firstDayOfMonth.DayOfWeek;
-                if (startDay == 0) startDay = 7; 
+                if (startDay == 0) startDay = 7;
 
                 for (int i = 1; i < startDay; i++)
                 {
@@ -515,9 +515,8 @@ Used RAM: {4}B", CPUbrand, CPUvendor, amount_of_ram, availible_ram, UsedRam);
         }
 
     }
-    
-}
 
+}
 
 
 
