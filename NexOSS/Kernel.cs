@@ -187,10 +187,131 @@ Used RAM: {4}B", CPUbrand, CPUvendor, amount_of_ram, availible_ram, UsedRam);
                     games.Main(null);
                     break;
                 case "Calendar":
+                    Calendar calendar = new Calendar();
+                    calendar.Main(null);
+                    break;
                 case "Calc":
                     Calc();
                     break;
 
+            }
+        }
+
+
+        public class Calendar
+        {
+            internal void Main(object value)
+            {
+                throw new NotImplementedException();
+            }
+            private static Dictionary<DateTime, string> notes = new Dictionary<DateTime, string>();
+
+            public void Main(string[] args)
+            {
+                while (true)
+                {
+                    Console.WriteLine("Calendar with notes");
+                    Console.WriteLine("1. Show calendar");
+                    Console.WriteLine("2. Add note");
+                    Console.WriteLine("3. Show notes");
+                    Console.WriteLine("4. Exit");
+                    Console.Write("Choise operation: ");
+
+                    string choice = Console.ReadLine();
+
+                    switch (choice)
+                    {
+                        case "1":
+                            ShowCalendar();
+                            break;
+                        case "2":
+                            AddNote();
+                            break;
+                        case "3":
+                            ViewNotes();
+                            break;
+                        case "4":
+                            return;
+                        default:
+                            Console.WriteLine("Uncorrect choise, please return.");
+                            break;
+                    }
+
+                    Console.WriteLine("Tap Enter to continue...");
+                    Console.ReadLine();
+                }
+            }
+
+            public void ShowCalendar()
+            {
+                Console.Clear();
+                Console.WriteLine("Calendar");
+                Console.WriteLine("=========");
+
+                DateTime currentDate = DateTime.Now;
+
+                Console.WriteLine(currentDate.ToString("MMMM yyyy"));
+                Console.WriteLine("Mon Tue Wed Thu Fri Sat Sun");
+
+                DateTime firstDayOfMonth = new DateTime(currentDate.Year, currentDate.Month, 1);
+
+                int startDay = (int)firstDayOfMonth.DayOfWeek;
+                if (startDay == 0) startDay = 7; 
+
+                for (int i = 1; i < startDay; i++)
+                {
+                    Console.Write("   ");
+                }
+
+                for (int day = 1; day <= DateTime.DaysInMonth(currentDate.Year, currentDate.Month); day++)
+                {
+                    Console.Write($"{day,2} ");
+
+                    if ((startDay + day - 1) % 7 == 0)
+                    {
+                        Console.WriteLine();
+                    }
+                }
+
+                Console.WriteLine();
+            }
+
+            public void AddNote()
+            {
+                Console.Clear();
+                Console.WriteLine("Adding notes");
+                Console.Write("Enter date (dd.mm.yyyy): ");
+                if (DateTime.TryParse(Console.ReadLine(), out DateTime date))
+                {
+                    Console.Write("Enter notes text: ");
+                    string note = Console.ReadLine();
+
+                    notes[date.Date] = note;
+                    Console.WriteLine("Adding is succesfull!");
+                }
+                else
+                {
+                    Console.WriteLine("Uncorrect date formats.");
+                }
+            }
+
+            public void ViewNotes()
+            {
+                Console.Clear();
+                Console.WriteLine("Notes list");
+                Console.WriteLine("==============");
+
+                if (notes.Count == 0)
+                {
+                    Console.WriteLine("No notes.");
+                }
+                else
+                {
+                    foreach (var entry in notes)
+                    {
+                        Console.WriteLine($"{entry.Key.ToShortDateString()}: {entry.Value}");
+                    }
+                }
             }
         }
         public void Calc()
